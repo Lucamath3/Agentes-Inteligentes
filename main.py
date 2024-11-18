@@ -1,15 +1,24 @@
 '''
-- **Função `criaTabuleiro`:** Cria um tabuleiro vazio para o jogo da velha representado por uma matriz 3x3.
-- **Função `imprimeTabuleiro`:** Exibe o tabuleiro no console em um formato amigável.
-- **Função `testeTerminal`:** Verifica se o jogo terminou (vitória de 'x', vitória de 'o', ou empate). Retorna:
+UNIVERSIDADE FEDERAL DO MARANHÃO
+CENTRO DE CIÊNCIAS EXATAS E TECNOLOGIAS
+CURSO INTERDISCIPLINARM EM CIÊNCIA E TECNOLOGIA
+ALUNO: LUCAS MATHEUS DOS PASSOS GOMES
+DISCIPLINA: INTELIGÊNCIA COMPUTACIOANL
+
+
+- Função `criaTabuleiro`: Cria um tabuleiro vazio para o jogo da velha representado por uma matriz 3x3.
+- Função `imprimeTabuleiro`:** Exibe o tabuleiro no console em um formato amigável.
+
+- Função `testeTerminal`: Verifica se o jogo terminou (vitória de 'x', vitória de 'o', ou empate). Retorna:
   - `1` se 'o' venceu;
   - `3` se 'x' venceu;
   - `2` para empate;
   - `0` se o jogo ainda não terminou.
-- **Funções `acaoMax` e `acaoMin`:** Implementam a lógica minimax para que a CPU jogue de forma ideal:
+- Funções `acaoMax` e `acaoMin`: Implementam a lógica minimax para que a CPU jogue de forma ideal:
   - `acaoMax`: Determina o melhor movimento para 'x'.
   - `acaoMin`: Determina o melhor movimento para 'o'.
-- **Função `principal`:** Controla o fluxo do jogo:
+
+- Função `principal`: Controla o fluxo do jogo:
   - Permite diferentes modos de jogo: CPU vs. CPU, Jogador vs. CPU e Jogador vs. Jogador.
   - Alterna turnos entre os jogadores/CPU.
   - Determina o vencedor ou empate e pergunta se o jogador deseja continuar.
@@ -28,27 +37,27 @@ def imprimeTabuleiro(tabuleiro):
 def testeTerminal(tabuleiro):
     # Testa diagonal principal
     if tabuleiro[0][0] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][2]:
-        if tabuleiro[0][0] == 'x':
+        if tabuleiro[0][0] == 'X':
             return 3
-        elif tabuleiro[0][0] == 'o':
+        elif tabuleiro[0][0] == 'O':
             return 1
     # Testa diagonal secundária
     if tabuleiro[2][0] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[0][2]:
-        if tabuleiro[2][0] == 'x':
+        if tabuleiro[2][0] == 'X':
             return 3
-        elif tabuleiro[2][0] == 'o':
+        elif tabuleiro[2][0] == 'O':
             return 1
     # Testa linhas e colunas
     for i in range(3):
         if tabuleiro[i][0] == tabuleiro[i][1] and tabuleiro[i][1] == tabuleiro[i][2]:
-            if tabuleiro[i][0] == 'x':
+            if tabuleiro[i][0] == 'X':
                 return 3
-            elif tabuleiro[i][0] == 'o':
+            elif tabuleiro[i][0] == 'O':
                 return 1
         if tabuleiro[0][i] == tabuleiro[1][i] and tabuleiro[1][i] == tabuleiro[2][i]:
-            if tabuleiro[0][i] == 'x':
+            if tabuleiro[0][i] == 'X':
                 return 3
-            elif tabuleiro[0][i] == 'o':
+            elif tabuleiro[0][i] == 'O':
                 return 1
     # Verifica empate
     empate = True
@@ -68,7 +77,7 @@ def acaoMax(tabuleiro):
         for j in range(3):
             if tabuleiro[i][j] == ' ':
                 copia = [list(tabuleiro[0]), list(tabuleiro[1]), list(tabuleiro[2])]
-                copia[i][j] = 'x'
+                copia[i][j] = 'X'
                 acoes.append([0, copia])
     for i in range(len(acoes)):
         acoes[i][0] = acaoMin(acoes[i][1])[0]
@@ -83,7 +92,7 @@ def acaoMin(tabuleiro):
         for j in range(3):
             if tabuleiro[i][j] == ' ':
                 copia = [list(tabuleiro[0]), list(tabuleiro[1]), list(tabuleiro[2])]
-                copia[i][j] = 'o'
+                copia[i][j] = 'O'
                 acoes.append([0, copia])
     for i in range(len(acoes)):
         acoes[i][0] = acaoMax(acoes[i][1])[0]
@@ -98,7 +107,7 @@ def principal():
         if op >= 1 and op <= 3:
             while True:
                 tabuleiro = criaTabuleiro()
-                os.system('cls' if os.name == 'nt' else 'clear')
+                print("\n" * 10)
                 imprimeTabuleiro(tabuleiro)
                 vezPrimeiro = True
                 while not testeTerminal(tabuleiro):
@@ -112,11 +121,11 @@ def principal():
                     else:
                         while True:
                             if vezPrimeiro and (op == 3 or not cpuPrimeiro):
-                                print('Jogador [x]: ')
-                                valor = 'x'
+                                print('Jogador [X]: ')
+                                valor = 'X'
                             else:
-                                print('Jogador [o]: ')
-                                valor = 'o'
+                                print('Jogador [O]: ')
+                                valor = 'O'
                             linha = int(input('linha: '))
                             coluna = int(input('coluna: '))
                             if linha > 0 and linha < 4 and coluna > 0 and coluna < 4:
@@ -125,7 +134,7 @@ def principal():
                                     break
                     if op == 2:
                         vezCPU = not vezCPU
-                    os.system('cls' if os.name == 'nt' else 'clear')
+                    print("\n" * 10)
                     imprimeTabuleiro(tabuleiro)
                     vezPrimeiro = not vezPrimeiro
                 if op == 2:
@@ -136,19 +145,21 @@ def principal():
 
                 resultado = testeTerminal(tabuleiro)
                 if resultado == 1:
-                    print('Vitória do [o]!')
+                    print('Vitória do [O]!')
                 elif resultado == 3:
-                    print('Vitória do [x]!')
+                    print('Vitória do [X]!')
                 else:
                     print('Empate!')
                 while True:
-                    saida = input('Jogar novamente?[sim ou não] ')
+                    saida = input('Jogar novamente? [sim ou não] ')
+                    # tratamento da resposta
                     saida = saida.lower()
                     if saida == 'sim' or saida == 'não':
                         break
-                if saida == 'não':
+                if saida == 'não' or 'nao':
                     break
-            os.system('cls' if os.name == 'nt' else 'clear')
+            # Limpa a tela
+            print("\n" * 10)
         else:
             return
 
