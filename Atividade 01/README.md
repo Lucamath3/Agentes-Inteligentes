@@ -83,4 +83,9 @@ destino, o caminho é reconstruído retroativamente.
 A entrada do usuário define a origem, o destino e as paradas intermediárias. Validações garantem que apenas astros 
 válidos sejam considerados. Por fim, o grafo completo é visualizado, com os pesos das arestas e destacando o caminho 
 encontrado, incluindo os astros visitados e as conexões seguidas.
+
+### Problemas encontrados
+
+Infelizmente não consegui resolver o problema de escala. Os planetas interiores ainda ficam sobrepostos quando são 
+apresentados nos grafos.
 ```

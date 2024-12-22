@@ -19,6 +19,7 @@ astros = {
     'Netuno': {'distancia': 4495.1},
     'Lua': {'distancia': 0.384},  # Distância da Lua para a Terra
     'Fobos': {'distancia': 0.006},  # Distância de Fobos para Marte
+    'Plutao':{'distancia' : 5900}
 }
 
 # Função para adicionar arestas ao grafo com base nas distâncias
