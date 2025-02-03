@@ -1,0 +1,15 @@
+Fonte: https://www.datacamp.com/pt/tutorial/a-star-algorithm
+
+O que é o algoritmo A*?
+
+    O algoritmo A* é um algoritmo avançado e amplamente usado para atravessar gráficos e encontrar caminhos. Ele
+encontra o caminho mais curto entre um nó inicial e um nó de meta em um gráfico ponderado.
+
+Como funciona o algoritmo A*?
+
+O algoritmo A* combina os melhores aspectos de dois outros algoritmos:
+
+    Algoritmo de Dijkstra: Esse algoritmo encontra o caminho mais curto para todos os nós a partir de um único nó de
+origem.
+    Busca de melhor primeiro com ganância: Esse algoritmo explora o nó que parece estar mais próximo da meta, com base
+ em uma função heurística.
