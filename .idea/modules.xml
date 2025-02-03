@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Agentes Inteligentes.iml" filepath="$PROJECT_DIR$/.idea/Agentes Inteligentes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PythonProject/Inteligencia Artificial/.idea/Inteligencia Artificial.iml" filepath="$PROJECT_DIR$/../PythonProject/Inteligencia Artificial/.idea/Inteligencia Artificial.iml" />
     </modules>
   </component>
 </project>
